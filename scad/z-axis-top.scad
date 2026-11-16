@@ -8,7 +8,7 @@
 module z_top_base() {
   translate([0, -5, 0]) cube([8, 45, 16]); // plate touching the base
   translate([0, -5, 0]) cube([33, 3.6, 12]); // plate touching the base
-  translate([0, -5, 0]) cube([38, 45, 5]); // plate touching the base   
+  translate([0, -5, 0]) cube([38, 45, 5]); // plate touching the base
   translate([25 + 4.3, 3.2, 5]) rotate([0, 0, 0]) cylinder(h=2.5, r=7, $fn=60);
 }
 

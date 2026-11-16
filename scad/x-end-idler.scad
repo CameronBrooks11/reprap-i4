@@ -5,7 +5,7 @@
 // http://www.reprap.org/wiki/Prusa_Mendel
 // http://prusamendel.org
 
-use <x-end.scad>
+use <lib/x-end.scad>
 
 module x_end_idler_holes() {
   x_end_holes();

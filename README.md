@@ -22,32 +22,35 @@ just check    # every part renders without error (what CI runs)
 
 ## Layout
 
-| Path                     | What                                                                        |
-| ------------------------ | --------------------------------------------------------------------------- |
-| `printer-parts/scad/`    | OpenSCAD source of the printed parts                                        |
-| `printer-parts/stl/`     | upstream's STLs, including parts that have no SCAD source yet               |
-| `printer-parts/step/`    | upstream's STEP files for the parts not in SCAD                             |
-| `enclosure-parts/`       | parts for the enclosure                                                     |
-| `Frame/`                 | upstream's frame drawings (DXF) and extrusion spec (PDF)                    |
+| Path               | What                                                                    |
+| ------------------ | ----------------------------------------------------------------------- |
+| `scad/`            | OpenSCAD source of every part; `just render` makes the STLs             |
+| `scad/enclosure/`  | parts for the enclosure                                                 |
+| `scad/hotend/`     | hotend mockups to design round; not printed                             |
+| `scad/lib/`        | modules the parts `use`                                                 |
+| `reference/stl/`   | upstream STLs for parts whose SCAD doesn't exist or doesn't match yet   |
+| `reference/step/`  | upstream's STEP files                                                   |
+| `reference/frame/` | upstream's frame plate drawings (DXF) and extrusion spec (PDF)          |
 
 ## What differs from the MK3S
 
-- **Folders.** `Printed-Parts/SCAD` and `Printed-Parts/STL` are `printer-parts/scad` and
-  `printer-parts/stl`, with Unix line endings.
+- **Folders.** Upstream's `Printed-Parts/SCAD` is `scad/` (with `scad/lib/` for the shared
+  modules), and its STL, STEP and frame files are under `reference/`. STLs that `just render`
+  reproduces are deleted rather than kept.
 - **X ends.** Tarek Loubani's parametric X-end flange,
   [upstream PR #3](https://github.com/prusa3d/Original-Prusa-i3/pull/3) (2016, still open there),
   merged by hand, with the lead-screw hole at 13.2 mm.
-- **Frame foot.** `printer-parts/scad/foot.scad`, mine: a tapered foot with a 2020-extrusion
+- **Frame foot.** `scad/foot.scad`, mine: a tapered foot with a 2020-extrusion
   dovetail, modelled on the MK3S foot. Print it in TPU or another flexible filament.
-- **Enclosure foot.** `enclosure-parts/scad/feet-bracket.scad`, mine: the enclosure's foot bracket
+- **Enclosure foot.** `scad/enclosure/feet-bracket.scad`, mine: the enclosure's foot bracket
   rebuilt from OpenSCAD solids, with an `extension` parameter (18 mm by default) that makes it taller
   so the front and rear can be levelled using the original bolts.
   - It reproduces Prusa Research's `feet_bracket-R1` from
     [Original-Prusa-Enclosure](https://github.com/prusa3d/Original-Prusa-Enclosure) (GPL-3.0), also
     on Printables as
     [Enclosure printable parts](https://www.printables.com/model/251931-enclosure-printable-parts).
-  - `enclosure-parts/stl/feet-bracket-original.stl` is that STL, unchanged, for comparison.
-- **Hotend mockups** in `printer-parts/scad/hotend/`, for designing parts round an E3D V6:
+  - `reference/stl/feet-bracket-original.stl` is that STL, unchanged, for comparison.
+- **Hotend mockups** in `scad/hotend/`, for designing parts round an E3D V6:
   - `hotend.scad`: thehans's
     [E3D V6 Heatsink mockup for OpenSCAD](https://www.thingiverse.com/thing:2420969), Creative
     Commons Attribution.

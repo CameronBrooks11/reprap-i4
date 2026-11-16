@@ -37,7 +37,7 @@ module reinforcement_selective_infill() {
 }
 
 module x_end_holes() {
-  
+
   vertical_bearing_holes();
 
   // Belt hole

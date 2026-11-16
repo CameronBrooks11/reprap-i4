@@ -105,7 +105,7 @@ module PSU_Y_REINFORCEMENT() {
     union() // base shape
     {
       translate([59.5, 0, -18]) cube([33, 6, 19]); // reinforcement plate
-      translate([73.5, 5, -18]) cube([5, 16, 19]); // vertical_reinforcement    
+      translate([73.5, 5, -18]) cube([5, 16, 19]); // vertical_reinforcement
     }
     union() // cutouts
     {
@@ -169,7 +169,7 @@ module lower_part() {
           translate([50, 0.5, 40]) cube([40, 3, 13.8]);
           translate([5, 0.5, 4]) cube([90, 4, 45]);
         }
-        translate([-5, 3.5, -20]) cube([120, 100, 120]); // cut 
+        translate([-5, 3.5, -20]) cube([120, 100, 120]); // cut
       }
 
       // frame side wall

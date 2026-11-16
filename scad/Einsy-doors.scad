@@ -60,7 +60,7 @@ module cutouts() {
 
   ventilation_holes();
 
-  // rounded side cutoff    
+  // rounded side cutoff
   translate([26.5, 87.5, 4.5]) rotate([0, 90, 0]) cylinder(h=73, r=3.5, $fn=30);
   translate([26.5, 80, 5]) cube([73, 19, 10]);
   translate([26.5, 82.5, 1]) cube([73, 5, 10]);
@@ -69,7 +69,7 @@ module cutouts() {
   translate([0, 60, -10]) cube([30, 30, 10]);
   translate([-1, 87.5, 0]) cube([22.5, 10, 10]);
 
-  // upper hinge 
+  // upper hinge
   translate([2, 80, 6]) cube([19.5, 10, 10]);
   translate([-2, 89.7, 3]) rotate([70, 0, 0]) cube([19.5, 10, 5]);
   translate([-5, 87.5, 4.5]) rotate([0, 90, 0]) cylinder(h=26.5, r=2.5, $fn=30);
@@ -77,7 +77,7 @@ module cutouts() {
   // hinge hole
   translate([-5, 87.5, 4.5]) rotate([0, 90, 0]) cylinder(h=120, r=2.6, $fn=30);
 
-  // door closing 
+  // door closing
   translate([4, 3.5, 12.9]) rotate([0, 0, 0]) cylinder(h=3.2, r1=1.2, r2=2.8, $fn=30);
   translate([102, 3.5, 12.9]) rotate([0, 0, 0]) cylinder(h=3.2, r1=1.2, r2=2.8, $fn=30);
 
