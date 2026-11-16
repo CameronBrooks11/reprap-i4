@@ -5,7 +5,7 @@
 // http://www.reprap.org/wiki/Prusa_Mendel
 // http://prusamendel.org
 
-use <x-end.scad>
+use <lib/x-end.scad>
 
 module x_end_motor_base() {
   x_end_base();
@@ -37,7 +37,7 @@ module x_end_motor_holes() {
     }
     ;
 
-    // Material saving cutout 
+    // Material saving cutout
     translate(v=[-10, 12, 12]) cube(size=[60, 42, 42], center=true);
     translate(v=[-25, 10.5, -11]) rotate([45, 0, 0]) cube(size=[60, 10, 10]);
     translate(v=[-25, 21, -11]) rotate([45, 0, 0]) cube(size=[60, 10, 10]);

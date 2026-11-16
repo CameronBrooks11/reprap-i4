@@ -53,7 +53,7 @@ module clip() {
     // thermistor cable entry
     translate([-0, 22, 4]) rotate([115, 0, 0]) cylinder(h=15, r=3, $fn=60);
 
-    // edges  
+    // edges
     translate([-18.0, 32, -5]) rotate([0, 0, 25]) cube([11, 11, 15]);
     translate([18, 32, -5]) rotate([0, 0, 65]) cube([11, 11, 15]);
   }

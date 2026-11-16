@@ -1,5 +1,5 @@
 // PRUSA iteration4
-// Einsy base 
+// Einsy base
 // GNU GPL v3
 // Josef Průša <iam@josefprusa.cz> and contributors
 // http://www.reprap.org/wiki/Prusa_Mendel
@@ -47,7 +47,7 @@ module main_body()
   translate([0, 0, 1]) cube([9, 92, 3]);
   translate([98, 0, 0]) cube([9, 92, 4]);
 
-  // 
+  //
   translate([21, 81, 0]) cylinder(h=4.5, r=2.5, $fn=30);
   translate([21 + 58, 81, 0]) cylinder(h=4.5, r=2.5, $fn=30);
 
@@ -101,7 +101,7 @@ module main_body()
       }
 
   difference() {
-    // bottom side reinforcement    
+    // bottom side reinforcement
     translate([98, 86, 0]) cube([7.5, 6, 35]);
     translate([96, 79, 0]) rotate([0, 0, 45]) cube([7.5, 6, 36]);
   }
@@ -225,7 +225,7 @@ module cutouts() {
   translate([-12, 16.5, 28]) cube([15, 23, 8]);
   translate([-3, 28, 28]) rotate([35, 90, 0]) cylinder(h=24, r=1.7, $fn=30);
 
-  // side     
+  // side
   translate([12, 19, 1]) cube([85.5, 51, 3]);
 
   // Einsy M3 screws
@@ -242,7 +242,7 @@ module cutouts() {
   translate([2, 0, 0]) ventilation_holes();
 
   // frame mounting screws
-  //upper    
+  //upper
   translate([18.5, -2, 15.6]) rotate([0, 45, 0]) cube([15, 10, 10]);
   translate([16.5, 8, 5]) rotate([90, 0, 0]) cylinder(h=10, r=1.6, $fn=30);
   translate([16.5, 9, 5]) rotate([90, 0, 0]) cylinder(h=5, r=3, $fn=30);
@@ -269,7 +269,7 @@ module cutouts() {
   // door closing screw
   translate([58.5, 88, -1]) cylinder(h=43, r=1.9, $fn=30);
 
-  // nut traps HEX  
+  // nut traps HEX
   translate([7.5, 14, -1]) {
     cylinder(h=4, r=3.2, $fn=6);
     rotate([0, 0, 0]) resize([0, 2, 0]) cylinder(h=4, r=3.5, $fn=6);
@@ -310,7 +310,7 @@ module cutouts() {
 
   // inner edges cutout
   translate([54, 79.5, 2]) rotate([0, 0, 45]) cube([5, 5, 50]);
-  //translate( [ 70 , 82.5 , 2 ] ) rotate([0,0,45]) cube( [ 5 , 5 , 50] ); 
+  //translate( [ 70 , 82.5 , 2 ] ) rotate([0,0,45]) cube( [ 5 , 5 , 50] );
   translate([6, 80, 7]) rotate([0, 0, 45]) cube([5, 5, 24]);
   translate([5.5, 4, 7]) rotate([0, 0, 45]) cube([3, 5, 29]);
 
@@ -697,7 +697,7 @@ module raspberry_cover() {
         translate([11.9, 33.4, -4]) cube([6, 9, 4]);
       }
 
-    // ventilation cutout   
+    // ventilation cutout
 
     for (i = [-5:6]) {
 

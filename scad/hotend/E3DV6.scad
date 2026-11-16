@@ -118,7 +118,7 @@ module e3dv6() {
 //e3dv6();
 
 // Z=0 is top of heatsink
-// tz(-ash) e3dv6(); 
+// tz(-ash) e3dv6();
 
 // Z=0 is top of collar mount
 // tz(-ash+3.7) e3dv6();

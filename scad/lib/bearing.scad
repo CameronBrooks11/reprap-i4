@@ -29,7 +29,7 @@ module horizontal_bearing_holes(bearings = 1) {
   // Ziptie cutouts
   ziptie_cut_ofset = 0;
   for (i = [0:bearings - 1]) {
-    // For easier positioning I move them by half of one 
+    // For easier positioning I move them by half of one
     // bearing holder then add each bearign lenght and then center again
     translate(v=[0, -holder_lenght / 2, 0]) translate(v=[0, one_holder_lenght / 2 + i * 25, 0]) difference() {
           union() {

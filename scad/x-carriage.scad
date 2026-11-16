@@ -5,7 +5,7 @@
 // http://www.reprap.org/wiki/Prusa_Mendel
 // http://prusamendel.org
 
-use <bearing.scad>
+use <lib/bearing.scad>
 
 module belt_cut() {
   rotate([0, 0, 180]) {

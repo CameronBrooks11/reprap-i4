@@ -24,7 +24,7 @@ module upper_hinge() {
 module lower_hinge() {
   difference() {
     union() {
-      // body   
+      // body
       translate([0, 6, 0]) cylinder(h=15, r=2.4, $fn=30);
       translate([0, 6, 0]) cylinder(h=10, r=2.8, $fn=30);
       translate([0, 6, 15]) cylinder(h=2, r1=2.4, r2=1.8, $fn=30);

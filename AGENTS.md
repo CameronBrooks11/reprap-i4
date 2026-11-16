@@ -19,12 +19,14 @@ roadmap; read it before changing a part.
 ## Layout
 
 ```
-printer-parts/scad/   # part source; polyholes.scad is a library, hotend/ holds mockups
-printer-parts/stl/    # upstream's STLs, including parts with no SCAD source yet
-printer-parts/step/   # upstream's STEP files for the parts not in SCAD
-enclosure-parts/      # enclosure parts (scad/ and stl/)
-Frame/                # upstream's frame DXFs and extrusion spec
-scripts/render.sh     # renders every tracked .scad, used by just render and just check
+scad/                 # every part's source; each file renders on its own
+scad/enclosure/       # enclosure parts
+scad/hotend/          # hotend mockups, not printed
+scad/lib/             # modules the parts `use`; not rendered on their own
+reference/stl/        # upstream STLs with no matching SCAD yet
+reference/step/       # upstream's STEP files
+reference/frame/      # upstream's frame DXFs and extrusion spec
+scripts/render.sh     # renders every part, used by just render and just check
 ```
 
 ## Commands
@@ -38,12 +40,13 @@ just test     # skipped: there are no geometry tests yet
 
 ## Conventions
 
-- A new part is a `.scad` file that renders on its own. A file that only defines modules for
-  others to `include` goes in the `libraries` list in `scripts/render.sh`, or `just check` fails on
-  its empty top-level object.
+- A new part is a `.scad` file under `scad/` that renders on its own. A file that only defines
+  modules for parts to `use` goes in `scad/lib/`, which `just check` skips.
 - Dimensions in millimetres. Put the values a builder would change (sizes, clearances, hardware)
   as named variables at the top of the file.
 - Build from OpenSCAD solids. An imported STL is a reference to compare against, not geometry.
+- Don't commit an STL that `just render` reproduces. Once a part's SCAD reproduces its upstream
+  STL, delete the STL.
 - Keep upstream's history and file names intelligible: a change to an upstream part is a commit
   on that file, not a copy under a new name.
 - Credit every part not written here in README.md, with its author, source link and licence.
