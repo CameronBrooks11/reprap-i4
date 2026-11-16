@@ -11,6 +11,8 @@ CJH, 31 March 2023.
 (updated 01Apr23 to smooth the transition between the stretched middle slice and the top slice)
 */
 
+// feet-bracket-original.stl is Prusa Research's feet_bracket-R1.stl, GPL-3.0:
+// https://github.com/prusa3d/Original-Prusa-Enclosure (Printed-Parts/STL)
 original_stl = "../stl/feet-bracket-original.stl"; //path+filename of original_stl foot 
 ext = 18; //amount of extension (mm)
 

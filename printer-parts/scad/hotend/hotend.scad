@@ -1,3 +1,6 @@
+// E3D V6 Heatsink mockup for OpenSCAD by thehans, Creative Commons Attribution (reformatted, otherwise unchanged)
+// https://www.thingiverse.com/thing:2420969
+
 e3d_v6_heatsink($fs=0.25, $fa=0.1);
 
 // total_length = 42.75

@@ -1,3 +1,6 @@
+// E3D V6 hotend assembly mockup: heatsink, heater block and sock, nozzle, fan and duct.
+// Author not recorded. The duct is E3D's (see hsduct() below).
+
 $fn = 60;
 
 cod = 16; // collar outer diameter
@@ -23,10 +26,10 @@ module tz(z = 0) {
 }
 
 module hsduct() {
-  // E3D V6 Duct by joshuarowley42
+  // E3D-v6 Fan Duct by joshuarowley42 (E3D), GNU GPL
   // https://www.thingiverse.com/thing:340312
   rotate([90, 0, 90])
-    import("E3D V6 Duct by joshuarowley42.stl");
+    import("V6.6_Duct.stl");
 }
 module fan() {
   fth = 6.95; // fan thickness
