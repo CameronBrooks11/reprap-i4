@@ -1,0 +1,69 @@
+# Every part must render. `ok` is the single status check for branch
+# protection; add new jobs to its `needs:` list.
+#
+# Pull requests only: with "require branches to be up to date" on, a run on
+# push to main would re-test the tree the PR already tested. No draft filter:
+# a job skipped by a conditional reports success, so `ok` would pass a draft
+# that never ran.
+
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  changes:
+    name: Detect changes
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      code: ${{ steps.filter.outputs.code }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            code:
+              - '**'
+              - '!**/*.md'
+
+  check:
+    name: Render
+    needs: [changes]
+    if: needs.changes.outputs.code == 'true'
+    # 24.04 pins OpenSCAD at the 2021.01 release; parts must render on it.
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install just
+        uses: extractions/setup-just@v2
+
+      - name: Install OpenSCAD
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends openscad
+          openscad --version
+
+      - name: Check (every part renders)
+        run: just check
+
+  ok:
+    name: ok
+    if: always()
+    needs: [changes, check]
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Fail if any upstream job failed or was cancelled
+        if: contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled')
+        run: exit 1
+      - name: Pass
+        run: echo 'All checks passed or were skipped'
