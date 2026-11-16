@@ -1,0 +1,19 @@
+# Rendered output (just render)
+build/
+
+# IDE / editor
+.idea/
+.vscode/
+*.swp
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Personal scratch (never committed)
+working/
+
+# Environment
+.env
+.env.local

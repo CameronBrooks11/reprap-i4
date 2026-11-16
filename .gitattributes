@@ -1,0 +1,12 @@
+# Normalize line endings; checkout/commit as LF
+* text=auto eol=lf
+
+# Shell scripts must stay LF
+*.sh text eol=lf
+
+# CAD exchange files are stored as-is (the DXFs are CRLF from upstream)
+*.stl -text
+*.stp -text
+*.step -text
+*.dxf -text
+*.pdf binary
