@@ -23,6 +23,13 @@ no harder to reproduce.
    (Marlin, Klipper).
 5. **Credited lineage.** Upstream and third-party work keeps its author, source and licence.
 
+## Scope
+
+- **Single extruder.** The MMU2S multi-material upgrade is out of scope, and its parts are not
+  ported.
+- **Frame.** The MK3S frame and extrusions are the starting point, and can change when there's a
+  good reason, such as build volume or a better enclosure. A frame change says what it buys.
+
 ## Roadmap
 
 ### Every part in OpenSCAD
@@ -36,8 +43,6 @@ reproduces it, checked against the upstream STL, before it can be changed:
 - Y axis: `y-belt-holder`, `y-belt-idler`, `y-belt-tensioner`, `y-motor-holder`, `y-rod-holder`
 - Other: `cable-holder`, `LCD-knob`, `psu-cover-DELTA`, `Spool-holder`, `raspberry_cover`,
   `rpi-zero-frame`
-- MMU2S variants: `adapter-printer-mmu2s`, `extruder-idler-mmu2s`, `fs-cover-mmu2s`,
-  `ir-sensor-cover-mmu2s`, `ir-sensor-holder-mmu2s` (port only if the MMU stays in scope)
 
 The X axis, Z axis, Einsy case and cable clips already have SCAD source from upstream.
 
@@ -60,8 +65,3 @@ The X axis, Z axis, Einsy case and cable clips already have SCAD source from ups
 - Make `Einsy-doors.scad` and `print-fan-support.scad` reproduce upstream's STLs, then delete the
   STLs. Upstream's `Einsy-doors` STL has 1.4% more volume than the SCAD renders, and its
   `print-fan-support` STL differs in size by 15.5 mm.
-
-## Open questions
-
-- Is the MMU2S in scope?
-- Frame: keep the MK3S frame and extrusions as-is, or open it up (build volume, enclosure-first)?
