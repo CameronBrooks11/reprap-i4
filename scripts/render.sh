@@ -23,7 +23,10 @@ while IFS= read -r scad; do
     name="${name//\//__}"
     stl="$out_dir/$name.stl"
     log="$out_dir/$name.log"
-    if openscad -o "$stl" "$scad" >"$log" 2>&1; then
+    # OpenSCAD only warns about a missing `use` file or an unknown module, and
+    # renders the part without that geometry, so treat those as failures.
+    if openscad -o "$stl" "$scad" >"$log" 2>&1 &&
+        ! grep -qE "Can't open (library|include)|Ignoring unknown (module|function)" "$log"; then
         n=$(grep -c WARNING "$log" || true)
         warnings=$((warnings + n))
         if [[ $n -gt 0 ]]; then
