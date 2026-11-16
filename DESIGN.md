@@ -57,8 +57,9 @@ The X axis, Z axis, Einsy case and cable clips already have SCAD source from ups
 
 - Clear the OpenSCAD warnings `just check` reports in upstream files (unused `center` arguments,
   ambiguous cylinder parameters, reversed ranges).
-- Decide whether the upstream STLs for parts with SCAD source stay committed or come from
-  `just render`.
+- Make `Einsy-doors.scad` and `print-fan-support.scad` reproduce upstream's STLs, then delete the
+  STLs. Upstream's `Einsy-doors` STL has 1.4% more volume than the SCAD renders, and its
+  `print-fan-support` STL differs in size by 15.5 mm.
 
 ## Open questions
 

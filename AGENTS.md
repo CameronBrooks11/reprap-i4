@@ -44,6 +44,8 @@ just test     # skipped: there are no geometry tests yet
 - Dimensions in millimetres. Put the values a builder would change (sizes, clearances, hardware)
   as named variables at the top of the file.
 - Build from OpenSCAD solids. An imported STL is a reference to compare against, not geometry.
+- Don't commit an STL that `just render` reproduces. Once a part's SCAD reproduces its upstream
+  STL, delete the STL.
 - Keep upstream's history and file names intelligible: a change to an upstream part is a commit
   on that file, not a copy under a new name.
 - Credit every part not written here in README.md, with its author, source link and licence.
